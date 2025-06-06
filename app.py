@@ -301,7 +301,7 @@ future_df = pd.DataFrame({'month': future_months})
 future_df['trend'] = range(df_model['trend'].max() + 1, df_model['trend'].max() + 8)
 future_df['months'] = future_df['month'].dt.month_name()
 
-if "Avanzado" in model_approach:
+if model_approach == "Variables Dummy":
     future_df['falta_inventario'] = 0
     future_df['post_falta_inventario'] = 0
     future_df['peak_season'] = ((future_df['month'].dt.month >= 9) & 
@@ -312,7 +312,7 @@ last_lag = df_model.iloc[-1]['sales']
 preds = []
 
 for i, row in future_df.iterrows():
-    if "Avanzado" in model_approach:
+    if model_approach == "Variables Dummy":
         row_data = {
             'trend': row['trend'], 'months': row['months'], 'lag1': last_lag,
             'falta_inventario': row['falta_inventario'],
