@@ -210,7 +210,7 @@ st.markdown("---")
 st.header("Construcción del Modelo Predictivo")
 
 # Data preprocessing based on selected approach
-if "Avanzado" in model_approach:
+if "Variables" in model_approach:
     st.success("Variables Dummy")
     # st.write("✅ Mantiene el dato real y modela el impacto del evento")
     
